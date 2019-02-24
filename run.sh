@@ -54,5 +54,11 @@ if [ ! -z "${SMTP_HEADER_TAG}" ]; then
   echo "Setting configuration option SMTP_HEADER_TAG with value: ${SMTP_HEADER_TAG}"
 fi
 
+#Set header tag  
+if [ ! -z "${MYNETWORKS}" ]; then
+  postconf -e "mynetworks = ${MYNETWORKS}"
+  echo "Setting configuration option mynetworks with value: ${MYNETWORKS}"
+fi
+
 #Start services
 supervisord
